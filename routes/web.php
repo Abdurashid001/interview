@@ -16,11 +16,9 @@ use App\Http\Controllers\TeacherRequestController;
 use App\Http\Controllers\Admin\TeacherRequestController as AdminTeacherRequestController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-
+Route::get('/', function () {
+    return redirect()->route('login');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -67,16 +65,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/users/create', [App\Http\Controllers\Admin\UserController::class, 'create'])->name('users.create'); // YANGI
     Route::post('/users', [App\Http\Controllers\Admin\UserController::class, 'store'])->name('users.store'); // YANGI
 });
-
-// Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-//     Route::get('/teacher-requests', [AdminTeacherRequestController::class, 'index'])->name('teacher-requests.index');
-//     Route::get('/teacher-requests/{teacherRequest}', [AdminTeacherRequestController::class, 'show'])->name('teacher-requests.show');
-//     Route::post('/teacher-requests/{teacherRequest}/approve', [AdminTeacherRequestController::class, 'approve'])->name('teacher-requests.approve');
-//     Route::post('/teacher-requests/{teacherRequest}/reject', [AdminTeacherRequestController::class, 'reject'])->name('teacher-requests.reject');
-//     Route::get('/teacher-requests/{teacherRequest}/download', [AdminTeacherRequestController::class, 'downloadDocument'])->name('teacher-requests.download');
-// });
-
-
 
 // Teacher routes (faqat o'qituvchilar uchun)
 Route::middleware(['auth', 'teacher'])->prefix('teacher')->name('teacher.')->group(function () {

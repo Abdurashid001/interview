@@ -75,6 +75,9 @@
                                       id="notes" name="notes" rows="3">{{ old('notes') }}</textarea>
                             @error('notes') <div class="invalid-feedback">{{ $message }}</div> @enderror
                         </div>
+                        <div>
+                            <h7 style="color: red;">Sizning so'rovingiz admin tomonidan tasdiqlansagina ro'yxatdan o'ta olasiz!</h7>
+                        </div>
 
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i> So'rov yuborish
